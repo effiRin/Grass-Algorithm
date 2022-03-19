@@ -1,0 +1,21 @@
+package go.study;
+
+import java.util.Scanner;
+
+public class ConsoleEx2 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String inputText = scanner.nextLine();
+
+        if(inputText.equalsIgnoreCase("Q")){
+            System.out.println("exit");
+        }else{
+            inputText = inputText.trim();
+            String[] argArr = inputText.split(" ");
+            for (int i = 0; i < argArr.length; i++) {
+                System.out.println(argArr[i]);
+            }
+        }
+    }
+
+}
