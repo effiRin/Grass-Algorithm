@@ -1,0 +1,31 @@
+package go.study;
+
+import java.util.Scanner;
+
+public class ConsoleEx1 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+
+        //equalsIgnoreCase 대소문자 구분없이 비교
+        if(input.equalsIgnoreCase("q")){
+            System.out.println("프로그램 종료");
+        }else{
+            getConsoletext(input);
+        }
+
+
+
+    }
+
+    public static String getConsoletext(String str){
+        String msg = null;
+        while(true){
+            String prompt= ">>";
+            msg = prompt + " " + str;
+            System.out.println(msg);
+            return msg;
+        }
+    }
+}
