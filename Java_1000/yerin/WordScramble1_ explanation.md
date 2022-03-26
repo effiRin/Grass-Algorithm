@@ -32,7 +32,6 @@ Math.random()으로 배열 strArr의 랜덤한 인덱스 번호를 구하여 get
 <br>
 <br>
 
-####2. List<> = new ArrayList
 
 ```
 List<Character> splitedWords = new ArrayList<Character>();
