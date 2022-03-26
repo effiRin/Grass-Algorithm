@@ -1,0 +1,95 @@
+import java.io.File;
+import java.util.LinkedList;
+import java.util.ListIterator;
+import java.util.Scanner;
+
+public class ConsoleEx4 {
+
+    static String[] argArr;
+    static LinkedList q = new LinkedList();
+    static final int MAX_SIXE = 5;
+
+    static File curDir;  //현재디렉토리
+
+    static {
+        //1. 시스템 속성 "user.dir"값 읽어서 FILE객체 만들고 curDir 할당해라
+        //2. 1의 코드를 예외처리하슈
+        try {
+            curDir = new File(System.getProperty("user.dir"));
+        }catch (Exception e){
+            e.getMessage();
+        }
+
+        //system class는 현재 작업 환경에 대한 속성에 대해 키,값 쌍으로 유지하고 있는 소석 테이블을 가지고 있다.
+        //자바 런타임 시스템이 처음 시작할 때 함께 사용자 정보,현재 사용하고 있는 자바 런타임 버전,그리고 파일 이름의 경로를 구분하기 위한
+        //경로 구분자,여러가지 환경변수등이 런타임 환경에 대한 정보를 포함하기 위해 시스템 속성이 초기화된다.
+        //현재는 사용자 디렉터리 >> user.dir
+        //System.getProperty  >> 시스템속성을 얻기 위한
+        //https://laonatti.tistory.com/304
+    }
+    public static void main(String[] args) {
+
+    //    System.out.println(System.getProperty("user.dir"));
+        Scanner scanner =  new Scanner(System.in);
+
+        while(true){
+            try {
+
+                //getPath() : File에 입력된 경로 리턴
+                //getAbsolutePath() : File에 입력된 절대 경로 리턴
+                //getCanonicalPath() : Resolved된 절대 경로 리턴
+
+                String prompt = curDir.getCanonicalPath() + ">>";
+                System.out.println(prompt);
+
+                String input  = scanner.nextLine();
+                save(input);
+
+                input = input.trim();
+                argArr =  input.split(" +");
+
+                String command = argArr[0].trim();
+                if("".equals(command)){
+                    continue;
+                }
+
+                command = command.toLowerCase();
+
+                if(command.equals("q")){
+                    System.out.println("exit...");
+                    return;
+                }else if(command.equals("history")){
+                    history();
+                }else{
+                    for (int i = 0; i < argArr.length; i++) {
+                        System.out.println(argArr[i]);
+                    }
+                }
+            }catch (Exception e){
+                System.out.println("입력오류입니다." +  e.getMessage());
+            }
+        }
+    }
+
+    public static void save(String input){
+        if(input == null || "".equals(input)){
+            return;
+        }
+
+        q.add(input);
+
+        //queue의 최대크기를 넣으면 제일 오래된 저장값을 삭제한다.
+        if(((LinkedList)q).size() > MAX_SIXE){
+            q.remove();
+        }
+    }
+
+    public static void history(){
+        int i =0;
+        ListIterator it = q.listIterator();
+
+        while(it.hasNext()){
+            System.out.println(++i +"." + it.next());
+        }
+    }
+}
