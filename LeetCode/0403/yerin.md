@@ -26,7 +26,7 @@ public class Solution {
 ```
 
 
-```
+```java
 package com.company;
 
 public class Main {
