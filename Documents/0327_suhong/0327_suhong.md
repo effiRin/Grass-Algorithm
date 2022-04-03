@@ -79,3 +79,5 @@
 오늘은 간단하게 binary search라는 것을 소개하며 알고리즘의 힘에 대해 알아보겠습니다. 
 
 ![array](array.png)
+
+brute force
