@@ -1,4 +1,4 @@
-# 알고리즘 스디 (LeetCode -> Explore -> Array101)
+# 알고리즘 스터디 (LeetCode -> Explore -> Array101)
 
 ### 2022.04.03
 
@@ -15,6 +15,7 @@ Input: nums = [12,345,2,6,7896]
 Output: 2
 // 12, 7896은 각각 2자리수, 4자리수로 짝수개의 자리수이다.
 ```
+
 ```bash
 Input: nums = [555,901,482,1771]
 Output: 1 
